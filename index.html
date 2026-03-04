@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube 埋め込みデモ</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #111;
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px;
+      gap: 24px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* 動画コンテナ：16:9 レスポンシブ */
+    .video-wrapper {
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* API が生成する div・iframe を両方フル表示 */
+    #youtube-player,
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* コントロール */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      justify-content: center;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px 24px;
+    }
+
+    .control-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .control-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #f00;
+      cursor: pointer;
+    }
+
+    .control-item span {
+      font-size: 0.95rem;
+    }
+
+    /* 注意文 */
+    .notice {
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>YouTube 埋め込みデモ</h1>
+
+  <div class="video-wrapper">
+    <div id="youtube-player"></div>
+  </div>
+
+  <div class="controls">
+    <label class="control-item">
+      <input type="checkbox" id="autoplay" checked>
+      <span>autoplay（自動再生）</span>
+    </label>
+    <label class="control-item">
+      <input type="checkbox" id="loop" checked>
+      <span>loop（ループ再生）</span>
+    </label>
+    <label class="control-item">
+      <input type="checkbox" id="mute" checked>
+      <span>mute（ミュート）</span>
+    </label>
+  </div>
+
+  <p class="notice">
+    ブラウザの仕様により、自動再生はミュート状態でのみ動作する場合があります
+  </p>
+
+  <script src="script.js"></script>
+</body>
+</html>

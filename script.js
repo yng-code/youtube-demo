@@ -40,6 +40,7 @@ window.onYouTubeIframeAPIReady = function () {
       loop        : cbLoop.checked ? 1 : 0,
       playlist    : VIDEO_ID, // loop に必須
       playsinline : 1,
+      origin      : 'https://yng-code.github.io',
     },
     events: {
       onReady: onPlayerReady,

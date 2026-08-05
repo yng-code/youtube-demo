@@ -1,4 +1,4 @@
-const VIDEO_ID = 'uarNiSl_uh4';
+const VIDEO_ID = 'V3J9nQzrIUk';
 
 const cbAutoplay = document.getElementById('autoplay');
 const cbLoop     = document.getElementById('loop');

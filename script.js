@@ -40,6 +40,7 @@ window.onYouTubeIframeAPIReady = function () {
       loop        : cbLoop.checked ? 1 : 0,
       playlist    : VIDEO_ID, // loop に必須
       playsinline : 1,
+      rel         : 0,        // 関連動画は同一チャンネルのものに限定(完全非表示は不可)
       origin      : 'https://yng-code.github.io',
     },
     events: {
